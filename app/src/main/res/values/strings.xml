@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">d2jsp Transaction Tracker</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="lbl_type">Transaction Type: </string>
+    <string name="lbl_iggAmnt">Igg Amnt: </string>
+    <string name="lbl_fgAmnt">Fg Amnt: </string>
+
+    <string-array name="transaction_type_array">
+        <item>Sold</item>
+        <item>Purchased</item>
+    </string-array>
+
+
+</resources>
