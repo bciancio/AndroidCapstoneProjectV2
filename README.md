@@ -7,4 +7,4 @@ The purpose of this project is create a mobile specific user interface to intera
 
 - I've gotten both the fragments wired up.
 - Currently working on populating the RecyclerView ListFrag
-- Getting failure when I make a request to my service?
+- Getting failure when I make a request to my service? Ask lori?
