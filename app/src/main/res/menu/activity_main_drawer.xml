@@ -7,6 +7,11 @@
             android:icon="@android:drawable/ic_dialog_dialer"
             android:title="Transactions List"
         />
+        <item
+            android:id="@+id/goToAddTransaction"
+            android:icon="@android:drawable/ic_input_add"
+            android:title="Add Transaction"
+        />
 
         <!--      <item
             android:id="@+id/nav_camara"

@@ -1,8 +1,10 @@
 package com.bciancio.androidcapstoneprojectv2;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -13,7 +15,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -29,37 +30,38 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        logcatThis("onCreate() has been called.");
+
+        wireUpWidgets();
+
+        // Check that the activity is using the layout version with
+        // the id:fragment_container FrameLayout
+        if (findViewById(R.id.fragment_container) != null) {
+
+            // However, if we're being restored from a previous state,
+            // then we don't need to do anything and should return or else
+            // we could end up with overlapping fragments.
+            if (savedInstanceState != null) {
+                return;
+            }
+
+
+            // Create a new Fragment to be placed in the activity layout
+            AddTransactionsFragment fragment = new AddTransactionsFragment();
+            replaceFragment(fragment);
+
+            setTitle(R.string.fragment_title_add);
+        }
+
+    }
+
+
+    public void wireUpWidgets() {
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        /* Wire up and add an event click listener to the floating Action button */
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                logcatThis("the floating action button has been clicked.");
-                if (checkIfValidInput()) {
-                    addTransaction();
-                } else {
-                    snackbarThis("Make sure you have value");
-                }
-            }
-        });
-
-        /* Wire up the two editable */
-        mEtIgg= (EditText)findViewById(R.id.et_iggAmnt);
-        mEtFg = (EditText)findViewById(R.id.et_fgAmnt);
-        /* Wire up the spinner, adding the two transaction types */
-        mTransactionType = (Spinner) findViewById(R.id.sp_transaction_type);
-
-        ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter.createFromResource(this,
-                R.array.transaction_type_array, android.R.layout.simple_spinner_item);
-
-        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        mTransactionType.setAdapter(spinnerAdapter);
-
-        /* Wire up the Drawer/Navigation view */
+         /* Wire up the Drawer/Navigation view */
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -111,7 +113,21 @@ public class MainActivity extends AppCompatActivity
 
         switch (id){
             case R.id.goToListView:
-                logcatThis("Here.");
+                logcatThis("Go to List View clicked.");
+
+                TransactionsListFragment transactionsListFragment= new TransactionsListFragment();
+                replaceFragment(transactionsListFragment);
+
+                setTitle(R.string.fragment_title_list);
+                break;
+
+            case R.id.goToAddTransaction:
+                logcatThis("Go to add transaction clicked.");
+
+                AddTransactionsFragment addTransactionsFragment = new AddTransactionsFragment();
+                replaceFragment(addTransactionsFragment);
+
+                setTitle(R.string.fragment_title_add);
                 break;
         }
 
@@ -120,33 +136,14 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    public boolean checkIfValidInput() {
-        if(mEtFg.getText().length() != 0 && mEtFg.getText().length() != 0) {
-            return true;
-        }
-        return false;
-    }
+    public void replaceFragment(Fragment fragment) {
+        // Insert the fragment by replacing any existing fragment
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .commit();
 
-    public void addTransaction(){
 
-        String typeValue = mTransactionType.getSelectedItem().toString();
-        int iggValue = Integer.parseInt(mEtIgg.getText().toString());
-        int fgValue = Integer.parseInt(mEtFg.getText().toString());
-
-        // TODO
-        // connect to webservice get the reply.
-        // pass if added below instead of hard value
-        snackbarTransactionAddedSuccess(true);
-    }
-
-    public void snackbarTransactionAddedSuccess(boolean success) {
-        String message;
-        if (success) {
-            message = "Transaction added.";
-        } else {
-            message = "Unable to add Transaction";
-        }
-        snackbarThis(message);
     }
 
     public void snackbarThis(String message) {
@@ -157,6 +154,6 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void logcatThis(String message) {
-        Log.d("MyDebug", "iIn main activity: " + message);
+        Log.d("MyDebug", "In main activity: " + message);
     }
 }
