@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<transactions>
+    <PurchasedTransaction>
+        <id>2</id>
+        <fgAmnt>700</fgAmnt>
+        <iggAmnt>100</iggAmnt>
+    </PurchasedTransaction>
+    <PurchasedTransaction>
+        <id>12</id>
+        <fgAmnt>700</fgAmnt>
+        <iggAmnt>100</iggAmnt>
+    </PurchasedTransaction>
+    <PurchasedTransaction>
+        <id>22</id>
+        <fgAmnt>111</fgAmnt>
+        <iggAmnt>111</iggAmnt>
+    </PurchasedTransaction>
+    <SoldTransaction>
+        <id>2</id>
+        <fgAmnt>700</fgAmnt>
+        <iggAmnt>100</iggAmnt>
+    </SoldTransaction>
+    <SoldTransaction>
+        <id>12</id>
+        <fgAmnt>700</fgAmnt>
+        <iggAmnt>100</iggAmnt>
+    </SoldTransaction>
+    <SoldTransaction>
+        <id>22</id>
+        <fgAmnt>111</fgAmnt>
+        <iggAmnt>111</iggAmnt>
+    </SoldTransaction>
+</transactions>

@@ -1,8 +1,11 @@
 package com.bciancio.androidcapstoneprojectv2.entity;
 
+import org.simpleframework.xml.Element;
 /**
  * Created by Student on 11/3/2015.
  */
+
+@Element
 public class PurchasedTransaction {
     private int id;
 
