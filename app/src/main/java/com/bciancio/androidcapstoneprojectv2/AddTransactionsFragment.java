@@ -97,10 +97,18 @@ public class AddTransactionsFragment  extends Fragment {
         int iggValue = Integer.parseInt(mEtIgg.getText().toString());
         int fgValue = Integer.parseInt(mEtFg.getText().toString());
 
-        // TODO
-        // connect to webservice get the reply.
-        // pass if added below instead of hard value
-        // snackbarTransactionAddedSuccess(true);
+        // TODO call the webservice, add a transaction to it.
+        // TODO call snackbarThis(message) with message = to if it was added to not.
+
+        /*
+            if(true) {
+                snackbarThis("Transaction successfully added.");
+            } else {
+                snackbarThis("Unable to add transaction.");
+            }
+
+         */
+
     }
 
 

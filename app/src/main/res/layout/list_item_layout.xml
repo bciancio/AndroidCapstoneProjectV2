@@ -10,7 +10,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentTop="true"
         android:layout_marginRight="6dip"
-        android:contentDescription="TODO"
+        android:contentDescription="Delete This Item"
         android:src="@android:drawable/ic_input_delete" />
 
     <TextView

@@ -26,6 +26,11 @@ public class MainActivity extends AppCompatActivity
     EditText mEtIgg;
     EditText mEtFg;
 
+    /**
+     * In the oncreate I call wireupWidgets to wire up the necessary widgets.
+     * If savedInstanceState != null than create a fragment to apply to the layout.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +60,12 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-
+    /**
+     * Wire up the widgets:
+     * -toolbar
+     * -drawer
+     * -navigation view
+     */
     public void wireUpWidgets() {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -72,6 +82,9 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+    /**
+     * Override method to close the drawer if its open or call the super onBackPressed.
+     */
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -83,6 +96,11 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    /**
+     * Inflates the menu_main layout to use.
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -90,6 +108,11 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    /**
+     * Logic for each item, for when it is selected
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -105,6 +128,11 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * This is the onSelectedListeners for each MenuItem in the navigation drawer
+     * @param item
+     * @return
+     */
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -136,6 +164,10 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    /**
+     * This method is in charge of replacing a Fragment with another fragment.
+     * @param fragment the new fragment
+     */
     public void replaceFragment(Fragment fragment) {
         // Insert the fragment by replacing any existing fragment
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -146,6 +178,10 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    /**
+     * This creates a snackBarMessage
+     * @param message the message to be snackbared
+     */
     public void snackbarThis(String message) {
         View view = findViewById(R.id.coordinator_layout);
         Snackbar
@@ -153,6 +189,10 @@ public class MainActivity extends AppCompatActivity
                 .show();
     }
 
+    /**
+     * For debuging.
+     * @param message what needs to be added to the logcat message
+     */
     public void logcatThis(String message) {
         Log.d("MyDebug", "In main activity: " + message);
     }

@@ -79,12 +79,9 @@ public class TransactionsListFragment extends Fragment {
     }
 
     public  void wireUpWidgets() {
-
         // Perform magic and make the fabulous floating action bar disappear!
         FloatingActionButton fab = (FloatingActionButton)getActivity().findViewById(R.id.fab);
         fab.setVisibility(View.GONE);
-
-
     }
 
     public void populateData() {

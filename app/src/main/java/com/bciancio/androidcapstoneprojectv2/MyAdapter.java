@@ -110,6 +110,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         return mDataset.size();
     }
 
+    /**
+     * For debuging.
+     * @param message what needs to be added to the logcat message
+     */
     public void logcatThis(String message) {
         Log.d("MyDebug", "In MyAdapter: " + message);
     }
