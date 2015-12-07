@@ -64,3 +64,18 @@ Java
 		* http://stackoverflow.com/questions/30981016/is-\there-\any-\way-\to-\convert-\json-\string-\to-\query-\string-\in-\android
 	* Post JSONArray to REST service.
 		* http://stackoverflow.com/questions/21269968/post-\jsonarray-\to-\rest-\service
+
+
+12/07/2015
+######Android Useful Links######
+* Mass amount of links in the massOpen1 bookmarks folder.
+
+* I started to work with making an Async task and than making the returned results into a list of Transaction objects.
+* androids throiwng an 404 equivalent.
+
+* I'm going to start working on getting ViewHolder / ItemListLayout / MyAdapter changes to support 
+  the use of an ArrayList<Transaction>.
+  
+* Setting up onClickListeners for the list items.
+	- The onClick will open up a new Fragment that transfers the current object data and puts into the 'input fields'
+	- On back == ListFragment.
