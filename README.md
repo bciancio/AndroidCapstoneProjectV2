@@ -18,8 +18,7 @@ The purpose of this project is create a mobile specific user interface to intera
 
 11/27/2015 - 12/06/2015
 
-Got a recycler view working.
-
+Got a recycler view working! I think I figured out how I need to make my xml webService data be transformed on the viewHolder.
 
 Below is the things i need to in both android / java in order to get this working as I want.
 Android
@@ -58,3 +57,10 @@ Java
 			- modify (by id)
 
 - Get the finished thing (with these changes) on Heroku
+
+######ReminderForNext######
+	* Android Query Structure.
+		* Convert JSON String to query String in android?:
+		* http://stackoverflow.com/questions/30981016/is-\there-\any-\way-\to-\convert-\json-\string-\to-\query-\string-\in-\android
+	* Post JSONArray to REST service.
+		* http://stackoverflow.com/questions/21269968/post-\jsonarray-\to-\rest-\service
