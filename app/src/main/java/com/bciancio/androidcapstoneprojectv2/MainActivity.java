@@ -1,5 +1,6 @@
 package com.bciancio.androidcapstoneprojectv2;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -20,6 +21,8 @@ import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
 
     Spinner mTransactionType;
 
@@ -195,5 +198,18 @@ public class MainActivity extends AppCompatActivity
      */
     public void logcatThis(String message) {
         Log.d("MyDebug", "In main activity: " + message);
+    }
+
+
+    private class AsyncCaller extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... params) {
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+        }
     }
 }
