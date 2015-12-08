@@ -1,11 +1,10 @@
-package com.bciancio.androidcapstoneprojectv2;
+package com.bciancio.androidcapstoneprojectv2.Activities;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -19,8 +18,14 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.bciancio.androidcapstoneprojectv2.MyTaskHandler;
+import com.bciancio.androidcapstoneprojectv2.Fragments.AddTransactionsFragment;
+import com.bciancio.androidcapstoneprojectv2.Fragments.TransactionsListFragment;
+import com.bciancio.androidcapstoneprojectv2.ProjectSettings;
+import com.bciancio.androidcapstoneprojectv2.R;
+
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, ProjectSettings{
+        implements NavigationView.OnNavigationItemSelectedListener, ProjectSettings {
 
 
 
@@ -65,7 +70,7 @@ public class MainActivity extends AppCompatActivity
 
     public void populateTheData() {
         logcatThis("about to populate the data.");
-        AsyncTaskClient populateDataTask = new AsyncTaskClient(this);
+        MyTaskHandler populateDataTask = new MyTaskHandler(this);
         populateDataTask.execute(TRANSACTION_DRIVER +  "/" + GET_ALL_TRANSACTIONS);
     }
 
@@ -114,6 +119,7 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+
         return true;
     }
 

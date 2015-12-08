@@ -13,6 +13,7 @@
     <string name="lbl_name">Name: </string>
     <string name="lbl_iggAmnt">Igg Amnt: </string>
     <string name="lbl_fgAmnt">Fg Amnt: </string>
+    <string name="lbl_add_transaction">Add Transaction</string>
 
     <string-array name="transaction_type_array">
         <item>Sold</item>

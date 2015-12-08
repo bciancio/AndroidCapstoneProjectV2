@@ -94,7 +94,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         //final int position = mDataset.get(position);
-        holder.mNameHolder.setText("Name: " + "TODO");
+        holder.mNameHolder.setText("Name: " + "anotherVersion");
         holder.mTypeHolder.setText("Type: " + mDataset.get(position).getType());
         holder.mFgHolder.setText("Fg Amnt: " + mDataset.get(position).getFgAmnt());
         holder.mIggHolder.setText("Igg Amnt: " + mDataset.get(position).getIggAmnt());

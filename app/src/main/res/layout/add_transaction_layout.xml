@@ -33,30 +33,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
     >
-        <!--igg Amnt-->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/lbl_iggAmnt"
-            android:id="@+id/lbl_iggAmnt"
-            android:textColor="@color/black"
-        />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/et_iggAmnt"
-            android:inputType="number"
-        />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-
-    >
         <!--fg Amnt-->
         <TextView
             android:layout_width="wrap_content"
@@ -64,14 +40,45 @@
             android:text="@string/lbl_fgAmnt"
             android:id="@+id/lbl_fggAmnt"
             android:textColor="@color/black"
-        />
+            />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/et_fgAmnt"
             android:inputType="number"
-        />
+            />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!--igg Amnt-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_iggAmnt"
+            android:id="@+id/lbl_iggAmnt"
+            android:textColor="@color/black"
+            />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_iggAmnt"
+            android:inputType="number"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lbl_add_transaction"
+        android:id="@+id/btn_add_transaction"
+        android:layout_gravity="center_horizontal"
+    />
 </LinearLayout>

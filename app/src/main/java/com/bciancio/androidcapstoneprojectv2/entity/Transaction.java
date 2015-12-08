@@ -21,6 +21,12 @@ public class Transaction {
     public Transaction() {
     }
 
+    public Transaction(String type, int fgAmnt, int iggAmnt) {
+        this.type = type;
+        this.fgAmnt = fgAmnt;
+        this.iggAmnt = iggAmnt;
+    }
+
     /**
      *  Constructor that takes all instanace variables
      * @param id

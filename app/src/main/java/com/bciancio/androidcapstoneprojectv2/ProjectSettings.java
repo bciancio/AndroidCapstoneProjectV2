@@ -9,5 +9,4 @@ public interface ProjectSettings {
     public static final String TRANSACTION_DRIVER = "transactionDriver";
     public static final String ADD_TRANSACTION = "addNewTransaction";
     public static final String URL_BASE = "https://damp-mesa-6637.herokuapp.com/";
-
 }

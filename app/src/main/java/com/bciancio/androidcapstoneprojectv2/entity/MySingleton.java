@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * Created by student on 12/8/2015.
  */
 public class MySingleton {
-    private static MySingleton sContactSingleton;
+    private static MySingleton sTransactionSingleton;
     // allows singleton to start activities, access project resources,
     // find your application private storage, and much more
     private Context mAppContext;
@@ -22,27 +22,27 @@ public class MySingleton {
      * Get mySingleton.
      *
      * @param context the context
-     * @return the contacts singleton
+     * @return the transactions singleton
      */
     public static MySingleton get(Context context) {
-        if(sContactSingleton == null){
+        if(sTransactionSingleton == null){
             //create the singleton using the context that is global
-            sContactSingleton = new MySingleton(context.getApplicationContext());
+            sTransactionSingleton = new MySingleton(context.getApplicationContext());
         }
-        return sContactSingleton;
+        return sTransactionSingleton;
     }
 
     /**
-     * Sets contact array list.
+     * Sets transaction array list.
      *
-     * @param transactionArrayList the contact array list
+     * @param transactionArrayList the transaction array list
      */
     public void setTransactionArrayList(ArrayList<Transaction> transactionArrayList) {
         mTransactionArrayList = transactionArrayList;
     }
 
     /**
-     * Get contact array list.
+     * Get transaction array list.
      *
      * @return the array list
      */
@@ -51,30 +51,30 @@ public class MySingleton {
     }
 
     /**
-     * Add contact to singleton array list.
+     * Add transaction to singleton array list.
      *
-     * @param transaction the contact
+     * @param transaction the transaction
      */
-    public void addContactToSingletonArrayList(Transaction transaction) {
+    public void addTransactionToSingletonArrayList(Transaction transaction) {
         getTransactionArrayList().add(transaction);
     }
 
     /**
-     * Replace contact in singleton array list.
+     * Replace transaction in singleton array list.
      *
      * @param index the index
-     * @param transaction the contact
+     * @param transaction the transaction
      */
-    public void replaceContactInSingletonArrayList(int index, Transaction transaction) {
+    public void replaceTransactionInSingletonArrayList(int index, Transaction transaction) {
         getTransactionArrayList().set(index, transaction);
     }
 
     /**
-     * Gets contact array list size.
+     * Gets transaction array list size.
      *
-     * @return the contact array list size
+     * @return the transaction array list size
      */
-    public int getContactArrayListSize() {
+    public int getTransactionArrayListSize() {
         return mTransactionArrayList.size();
     }
 }
