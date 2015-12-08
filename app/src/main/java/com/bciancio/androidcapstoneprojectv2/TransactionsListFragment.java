@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bciancio.androidcapstoneprojectv2.entity.MySingleton;
 import com.bciancio.androidcapstoneprojectv2.entity.Transaction;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -31,7 +32,7 @@ import java.util.ArrayList;
 /**
  * Created by student on 11/17/2015.
  */
-public class TransactionsListFragment extends Fragment {
+public class TransactionsListFragment extends Fragment implements ProjectSettings {
     ArrayList<Transaction> mTransactionArrayList;
     String mUrlBase = "https://damp-mesa-6637.herokuapp.com/";
 
@@ -40,7 +41,7 @@ public class TransactionsListFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         wireUpWidgets();
-        populateData();
+//        populateData();
     }
 
     @Nullable
@@ -57,7 +58,7 @@ public class TransactionsListFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-//        initalizeListView();
+        initalizeListView();
     }
 
     public void initalizeListView() {
@@ -81,28 +82,34 @@ public class TransactionsListFragment extends Fragment {
         aTransactionArrayList.add(new Transaction(4,"purchased",333,333));
 
         // TODO set myDataset == Transactions object - modify MyAdapter after
-        // specify an adapter (see also next example)
-//        MyAdapter mAdapter = new MyAdapter(aTransactionArrayList, getActivity());
-//        mRecyclerView.setAdapter(mAdapter);
+        MySingleton mySingleton = MySingleton.get(getActivity());
+        mTransactionArrayList = mySingleton.getTransactionArrayList();
 
-        MyAdapter mAdapter = new MyAdapter(aTransactionArrayList, getActivity());
+        MyAdapter mAdapter = new MyAdapter(mTransactionArrayList, getActivity());
         mRecyclerView.setAdapter(mAdapter);
+
     }
     public  void wireUpWidgets() {
         // Perform magic and make the fabulous floating action bar disappear!
         FloatingActionButton fab = (FloatingActionButton)getActivity().findViewById(R.id.fab);
         fab.setVisibility(View.GONE);
     }
-
-    public void populateData() {
-//        MyTask myTask = new MyTask();
-//        myTask.execute(mUrlBase + "transactionDriver/getAllTransactions");
-    }
-
     public void logcatThis(String message) {
         Log.d("MyDebug", "In TransactionsList fragment: " + message);
     }
 
+    /**********************************************************************************************/
+    /*********************************     Below = OLD    *****************************************/
+    /**********************************************************************************************/
+
+
+    public void populateData() {
+//        MySingleton mySingleton = MySingleton.get(getActivity());
+//        mTransactionArrayList = mySingleton.getTransactionArrayList();
+//
+        MyTask myTask = new MyTask();
+        myTask.execute(mUrlBase + TRANSACTION_DRIVER + "/" + GET_TEST);
+    }
 
     public class  MyTask extends AsyncTask<String, Void, ArrayList<Transaction>> {
 
@@ -122,7 +129,6 @@ public class TransactionsListFragment extends Fragment {
         protected ArrayList<Transaction> doInBackground(String... params) {
             logcatThis("doInBackgroundStarted");
             String urlString = params[0];
-            String resultToDisplay = "";
             InputStream in = null;
             URLConnection connection;
             HttpURLConnection urlConnection;
@@ -161,9 +167,6 @@ public class TransactionsListFragment extends Fragment {
 
                 in.close();
                 urlConnection.disconnect();
-
-                // TODO?
-                initalizeListView();
             } catch (XmlPullParserException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -184,10 +187,11 @@ public class TransactionsListFragment extends Fragment {
                 }
                 String tag = parser.getName();
                 if (tag.equals("PurchasedTransaction")) {
-                    logcatThis("tag == 'purchased'");
+                    logcatThis("tag == 'PurchasedTransaction'");
                     theTransactionArrayList.add(readPurchased(parser));
                 } else if (tag.equals("SoldTransaction")) {
                     // TODO STUFF
+                    logcatThis("tag == 'SoldTransaction' will need to add logic to add to list");
                 }
             }
 

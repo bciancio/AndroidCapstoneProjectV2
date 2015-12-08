@@ -20,7 +20,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, ProjectSettings{
 
 
 
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity
         logcatThis("onCreate() has been called.");
 
         wireUpWidgets();
-
+        populateTheData();
         // Check that the activity is using the layout version with
         // the id:fragment_container FrameLayout
         if (findViewById(R.id.fragment_container) != null) {
@@ -61,6 +61,12 @@ public class MainActivity extends AppCompatActivity
             setTitle(R.string.fragment_title_add);
         }
 
+    }
+
+    public void populateTheData() {
+        logcatThis("about to populate the data.");
+        AsyncTaskClient populateDataTask = new AsyncTaskClient(this);
+        populateDataTask.execute(TRANSACTION_DRIVER +  "/" + GET_ALL_TRANSACTIONS);
     }
 
     /**

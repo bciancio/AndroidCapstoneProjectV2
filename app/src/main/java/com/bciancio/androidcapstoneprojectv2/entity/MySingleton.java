@@ -19,7 +19,7 @@ public class MySingleton {
     }
 
     /**
-     * Get contacts singleton.
+     * Get mySingleton.
      *
      * @param context the context
      * @return the contacts singleton
