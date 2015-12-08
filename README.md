@@ -79,3 +79,11 @@ Java
 * Setting up onClickListeners for the list items.
 	- The onClick will open up a new Fragment that transfers the current object data and puts into the 'input fields'
 	- On back == ListFragment.
+
+12/07/2015
+######What I got done today######
+
+I finished most basic functionality/file structure.
+
+I want to demo it to Lori. 
+I also want to demo Tic Tac / confetti / drawing lab - the onRotate issue?
