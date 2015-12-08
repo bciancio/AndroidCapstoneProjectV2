@@ -11,16 +11,18 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bciancio.androidcapstoneprojectv2.entity.Transaction;
+
 import java.util.ArrayList;
 /**
  * Created by student on 12/6/2015.
  */
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     // TODO change to an Transactions object
-    private ArrayList<String> mDataset;
+    private ArrayList<Transaction> mDataset;
     private Activity mActivity;
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(ArrayList<String> myDataset, Activity myActivity) {
+    public MyAdapter(ArrayList<Transaction> myDataset, Activity myActivity) {
         mDataset = myDataset;
         mActivity = myActivity;
     }
@@ -28,30 +30,32 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
     public class ViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
-        public TextView mTxtheader;
-        public TextView mTxtFooter;
         public ImageView mImageView;
+        public TextView mNameHolder;
+        public TextView mTypeHolder;
+        public TextView mFgHolder;
+        public TextView mIggHolder;
 
         public ViewHolder(View v) {
             super(v);
-            mTxtheader = (TextView) v.findViewById(R.id.firstLine);
-            mTxtFooter = (TextView) v.findViewById(R.id.secondLine);
             mImageView = (ImageView) v.findViewById(R.id.deleteButton);
+            mNameHolder = (TextView) v.findViewById(R.id.theName);
+            mTypeHolder = (TextView) v.findViewById(R.id.theType);
+            mFgHolder = (TextView) v.findViewById(R.id.theFgAmnt);
+            mIggHolder = (TextView) v.findViewById(R.id.theIggAmnt);
+
         }
     }
 
-    public void add(int position, String item) {
-        mDataset.add(position, item);
-        notifyItemInserted(position);
-    }
+     // TODO Fix if added this functionality.
+//    public void add(int position, Transaction item) {
+//        mDataset.add(position, item);
+//        notifyItemInserted(position);
+//    }
 
+    public void remove(int itemPositon) {
 
-    // TODO prompt user ' are u sure ' dialog
-    // TODO this will eventually remove the item from database.
-    public void remove(String item) {
-
-        final String theItem = item;
+        final int thePosition = itemPositon;
 
         AlertDialog.Builder alert = new AlertDialog.Builder(mActivity);
 
@@ -60,9 +64,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         alert.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                int position = mDataset.indexOf(theItem);
-                mDataset.remove(position);
-                notifyItemRemoved(position);
+                mDataset.remove(thePosition);
+                notifyItemRemoved(thePosition);
 
                 dialog.dismiss();
             }
@@ -87,22 +90,22 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(MyAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(MyAdapter.ViewHolder holder, final int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        final String name = mDataset.get(position);
-        holder.mTxtheader.setText(mDataset.get(position));
+        //final int position = mDataset.get(position);
+        holder.mNameHolder.setText("Name: " + "TODO");
+        holder.mTypeHolder.setText("Type: " + mDataset.get(position).getType());
+        holder.mFgHolder.setText("Fg Amnt: " + mDataset.get(position).getFgAmnt());
+        holder.mIggHolder.setText("Igg Amnt: " + mDataset.get(position).getIggAmnt());
         holder.mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 logcatThis("mDataSet size  before delete " + getItemCount());
-                remove(name);
+                remove(position);
                 logcatThis("mDataSet size after delete " + getItemCount());
             }
         });
-
-        holder.mTxtFooter.setText("Footer: " + mDataset.get(position));
-
     }
 
     @Override

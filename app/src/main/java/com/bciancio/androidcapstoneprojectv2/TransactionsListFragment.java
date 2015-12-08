@@ -12,23 +12,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bciancio.androidcapstoneprojectv2.entity.PurchasedTransaction;
-import com.bciancio.androidcapstoneprojectv2.entity.SoldTransaction;
 import com.bciancio.androidcapstoneprojectv2.entity.Transaction;
-import com.bciancio.androidcapstoneprojectv2.entity.Transactions;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
-import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.nio.charset.MalformedInputException;
 import java.util.ArrayList;
 
 
@@ -36,7 +30,6 @@ import java.util.ArrayList;
  * Created by student on 11/17/2015.
  */
 public class TransactionsListFragment extends Fragment {
-    Transactions mTransactions;
     ArrayList<Transaction> mTransactionArrayList;
     String mUrlBase = "https://damp-mesa-6637.herokuapp.com/";
 
@@ -74,20 +67,16 @@ public class TransactionsListFragment extends Fragment {
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        ArrayList<String> myDataset = new ArrayList<>();
-        myDataset.add("one");
-        myDataset.add("two");
-        myDataset.add("three");
-        myDataset.add("four");
-        myDataset.add("five");
-        myDataset.add("six");
-        myDataset.add("seven");
-        myDataset.add("eight");
+        ArrayList<Transaction> aTransactionArrayList = new ArrayList<>();
 
+        aTransactionArrayList.add(new Transaction(1,"sold",100,100));
+        aTransactionArrayList.add(new Transaction(2,"sold",111,111));
+        aTransactionArrayList.add(new Transaction(3,"sold",222,222));
+        aTransactionArrayList.add(new Transaction(4,"purchased",333,333));
 
         // TODO set myDataset == Transactions object - modify MyAdapter after
         // specify an adapter (see also next example)
-        MyAdapter mAdapter = new MyAdapter(myDataset, getActivity());
+        MyAdapter mAdapter = new MyAdapter(aTransactionArrayList, getActivity());
         mRecyclerView.setAdapter(mAdapter);
     }
 
@@ -98,15 +87,8 @@ public class TransactionsListFragment extends Fragment {
     }
 
     public void populateData() {
-
-        // TODO switch out this hardcoded with a JSON mapper from client request.
-
-        MyTask myTask = new MyTask();
-        myTask.execute(mUrlBase + "transactionDriver/getAllTransactions");
-    }
-
-    public void invokeWS( ) {
-
+//        MyTask myTask = new MyTask();
+//        myTask.execute(mUrlBase + "transactionDriver/getAllTransactions");
     }
 
     public void logcatThis(String message) {

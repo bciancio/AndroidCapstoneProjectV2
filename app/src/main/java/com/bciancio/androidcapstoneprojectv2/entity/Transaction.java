@@ -1,5 +1,6 @@
 package com.bciancio.androidcapstoneprojectv2.entity;
 
+import java.util.Date;
 /**
  * Created by student on 12/7/2015.
  */
@@ -9,6 +10,10 @@ public class Transaction {
     private String type;
     private int fgAmnt;
     private int iggAmnt;
+
+    // TODO add getters / setters for the following  + modify constructors
+    private String name;
+    private Date dateAdded;
 
     /**
      * Empty constructor
