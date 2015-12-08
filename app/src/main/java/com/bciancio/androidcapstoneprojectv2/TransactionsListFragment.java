@@ -57,6 +57,10 @@ public class TransactionsListFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+//        initalizeListView();
+    }
+
+    public void initalizeListView() {
 
         RecyclerView mRecyclerView = (RecyclerView)getActivity().findViewById(R.id
                 .recyclerView);
@@ -78,10 +82,12 @@ public class TransactionsListFragment extends Fragment {
 
         // TODO set myDataset == Transactions object - modify MyAdapter after
         // specify an adapter (see also next example)
+//        MyAdapter mAdapter = new MyAdapter(aTransactionArrayList, getActivity());
+//        mRecyclerView.setAdapter(mAdapter);
+
         MyAdapter mAdapter = new MyAdapter(aTransactionArrayList, getActivity());
         mRecyclerView.setAdapter(mAdapter);
     }
-
     public  void wireUpWidgets() {
         // Perform magic and make the fabulous floating action bar disappear!
         FloatingActionButton fab = (FloatingActionButton)getActivity().findViewById(R.id.fab);
@@ -89,8 +95,8 @@ public class TransactionsListFragment extends Fragment {
     }
 
     public void populateData() {
-        MyTask myTask = new MyTask();
-        myTask.execute(mUrlBase + "transactionDriver/getAllTransactions");
+//        MyTask myTask = new MyTask();
+//        myTask.execute(mUrlBase + "transactionDriver/getAllTransactions");
     }
 
     public void logcatThis(String message) {
@@ -102,11 +108,15 @@ public class TransactionsListFragment extends Fragment {
 
         private final String ns = null;
 
+
+
         @Override
         protected void onPostExecute(ArrayList<Transaction> transactions) {
            // mTransactionArrayList = transactions;
             //logcatThis(mTransactionArrayList.size() + "  size");
         }
+
+
 
         @Override
         protected ArrayList<Transaction> doInBackground(String... params) {
@@ -114,16 +124,17 @@ public class TransactionsListFragment extends Fragment {
             String urlString = params[0];
             String resultToDisplay = "";
             InputStream in = null;
+            URLConnection connection;
+            HttpURLConnection urlConnection;
 
             // HTTP Get
             try {
                 URL url = new URL(urlString);
-                URLConnection connection = url.openConnection();
+                connection = url.openConnection();
                 connection.connect();
-                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+                urlConnection = (HttpURLConnection) url.openConnection();
                 in = new BufferedInputStream(urlConnection.getInputStream());
 
-                urlConnection.disconnect();
             } catch (MalformedURLException e) {
                 e.printStackTrace();
                 return null;
@@ -145,16 +156,19 @@ public class TransactionsListFragment extends Fragment {
                 parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
                 parser.setInput(in, null);
                 mTransactionArrayList = readFeed(parser);
-                logcatThis("size: " + mTransactionArrayList.size() + "First: " +
-                        mTransactionArrayList.get(1).getType() + " endTest");
+                logcatThis("size: " + mTransactionArrayList.size() + " First: " +
+                        mTransactionArrayList.get(0).getType() + " endTest");
 
                 in.close();
+                urlConnection.disconnect();
+
+                // TODO?
+                initalizeListView();
             } catch (XmlPullParserException e) {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
 
             return null;
         }
@@ -170,8 +184,10 @@ public class TransactionsListFragment extends Fragment {
                 }
                 String tag = parser.getName();
                 if (tag.equals("PurchasedTransaction")) {
-                    logcatThis("tag == ''");
+                    logcatThis("tag == 'purchased'");
                     theTransactionArrayList.add(readPurchased(parser));
+                } else if (tag.equals("SoldTransaction")) {
+                    // TODO STUFF
                 }
             }
 
