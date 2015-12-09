@@ -81,9 +81,46 @@ Java
 	- On back == ListFragment.
 
 12/07/2015
-######What I got done today######
-
+######Stuff######
 I finished most basic functionality/file structure.
+All rotation currently works.
 
-I want to demo it to Lori. 
-I also want to demo Tic Tac / confetti / drawing lab - the onRotate issue?
+######Future######
+* Tomorrow demo:
+	* Tic-Tac-Toe
+	* Confetti / Drawing labs
+		* Ask about issue / fix the issue.
+	* Capstone project
+* Navigation Pane Changes
+	* Modify 'List' icon
+	* Add a filter section if the ListFragment is open
+		* Add functionality for this.
+			* research/ask how?
+* In Add Transaction Fragment
+	* Implement a new appealing layout
+		* Add 'Name' label/input
+			* Currently input will just have a hardcode value in it.
+			* Set size limit?
+			* Allow for non-numeric values to be input in. (unlike fg/igg)
+			* Add this into validation (but commented out)
+* In Main Activity
+	* In Menu
+		* Add 'help' setting
+		* Modify onClick listener for this item based on the current fragment.
+* In List Fragment
+	* Change the current deletion button
+		* to a trash can icon.
+		* to send a AsyncTask to /test
+	* Change the '+' menu button
+		* to a different icon
+		* replace this fragment and go to the add transaction fragment.
+	* Swap around the Igg/Fg fields on the row layout
+	* Add onClick Listener for the row layouts content.
+		* This listener redirects to a new fragment
+* Create new fragment
+	* Purpose is to be able to 'update' the selected transaction.
+	* Have two buttons cancel / confirm.
+* For cleanup
+	* ProjectSettings interface
+	* Have the AlertDialog use in the 'remove' method in the list to be it its own class? Maybe?
+
