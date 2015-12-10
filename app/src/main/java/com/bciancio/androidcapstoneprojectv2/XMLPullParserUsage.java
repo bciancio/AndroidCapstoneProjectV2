@@ -1,6 +1,8 @@
-package com.bciancio.androidcapstoneprojectv2.entity;
+package com.bciancio.androidcapstoneprojectv2;
 
 import android.util.Log;
+
+import com.bciancio.androidcapstoneprojectv2.entity.Transaction;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;

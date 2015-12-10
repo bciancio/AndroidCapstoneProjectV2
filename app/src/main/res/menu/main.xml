@@ -7,7 +7,7 @@
       <item
           android:id="@+id/addTransactionMenu"
           android:icon="@android:drawable/ic_input_add"
-          android:title="@string/lbl_add_transaction"
+          android:title="@string/lbl_transaction_add"
           demonav:showAsAction="ifRoom|withText"
           />
 

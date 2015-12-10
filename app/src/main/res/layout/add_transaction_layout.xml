@@ -3,82 +3,198 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
+              android:gravity="center"
               >
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-    >
+    <!--<LinearLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal"-->
+    <!-->-->
 
-        <!--transaction type-->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/lbl_transaction_type"
-            android:id="@+id/inputType"
-            android:textColor="@color/black"
-        />
+        <!--&lt;!&ndash;transaction type&ndash;&gt;-->
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/lbl_transaction_type"-->
+            <!--android:id="@+id/inputType"-->
+            <!--android:textColor="@color/black"-->
+        <!--/>-->
 
-        <Spinner
-            android:id="@+id/sp_transaction_type"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-        />
+        <!--<Spinner-->
+            <!--android:id="@+id/sp_transaction_type"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+        <!--/>-->
 
-    </LinearLayout>
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal"-->
+    <!-->-->
+        <!--&lt;!&ndash;fg Amnt&ndash;&gt;-->
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/lbl_transaction_fgAmnt"-->
+            <!--android:id="@+id/lbl_fggAmnt"-->
+            <!--android:textColor="@color/black"-->
+            <!--/>-->
+
+        <!--<EditText-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/et_fgAmnt"-->
+            <!--android:inputType="number"-->
+            <!--/>-->
+
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--&lt;!&ndash;igg Amnt&ndash;&gt;-->
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/lbl_transaction_iggAmnt"-->
+            <!--android:id="@+id/lbl_iggAmnt"-->
+            <!--android:textColor="@color/black"-->
+            <!--/>-->
+
+        <!--<EditText-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/et_iggAmnt"-->
+            <!--android:inputType="number"-->
+        <!--/>-->
+
+    <!--</LinearLayout>-->
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-    >
-        <!--fg Amnt-->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/lbl_fgAmnt"
-            android:id="@+id/lbl_fggAmnt"
-            android:textColor="@color/black"
-            />
+        android:orientation="vertical"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp">
 
-        <EditText
+        <!-- Name Linear Layout -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+        >
+            <TextView
+                android:paddingRight="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_transaction_name"
+                android:textColor="@color/black"
+                android:id="@+id/lbl_transaction_name"
+            />
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_transaction_name"
+            />
+        </LinearLayout>
+
+        <!-- fgAmnt Linear Layout -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+            <TextView
+                android:paddingRight="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_transaction_fgAmnt"
+                android:textColor="@color/black"
+                android:id="@+id/lbl_transaction_fg_amnt"
+                />
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_transaction_fg_amnt"
+                />
+        </LinearLayout>
+
+        <!-- iggAmnt Linear Layout -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+            <TextView
+                android:paddingRight="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_transaction_iggAmnt"
+                android:textColor="@color/black"
+                android:id="@+id/lbl_transaction_igg_amnt"
+                />
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_transaction_igg_amnt"
+                />
+
+
+        </LinearLayout>
+
+        <!-- type Linear Layout -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+            <TextView
+                android:paddingRight="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_transaction_type"
+                android:textColor="@color/black"
+                android:id="@+id/lbl_transaction_type"
+                />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:id="@+id/rg_transaction_type"
+                >
+                    <RadioButton android:id="@+id/rb_transaction_type_sold"
+                                 android:layout_width="wrap_content"
+                                 android:layout_height="wrap_content"
+                                 android:text="@string/lbl_radio_sold"
+                                 android:checked="true"
+                    />
+                    <RadioButton android:id="@+id/rb_transaction_type_purchased"
+                                 android:layout_width="wrap_content"
+                                 android:layout_height="wrap_content"
+                                 android:text="@string/lbl_radio_purchased"
+                    />
+                </RadioGroup>
+
+        </LinearLayout>
+
+        <Button
+            android:layout_marginTop="40dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/et_fgAmnt"
-            android:inputType="number"
-            />
+            android:text="@string/lbl_transaction_add"
+            android:id="@+id/btn_add_transaction"
+            android:layout_gravity="center_horizontal"
+        />
 
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <!--igg Amnt-->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/lbl_iggAmnt"
-            android:id="@+id/lbl_iggAmnt"
-            android:textColor="@color/black"
-            />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/et_iggAmnt"
-            android:inputType="number"
-            />
-
-    </LinearLayout>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/lbl_add_transaction"
-        android:id="@+id/btn_add_transaction"
-        android:layout_gravity="center_horizontal"
-    />
 </LinearLayout>

@@ -8,12 +8,16 @@
 
     <string name="action_settings">Settings</string>
 
-    <string name="lbl_transaction_type">Transaction Type: </string>
     <string name="lbl_type">Type: </string>
-    <string name="lbl_name">Name: </string>
-    <string name="lbl_iggAmnt">Igg Amnt: </string>
-    <string name="lbl_fgAmnt">Fg Amnt: </string>
-    <string name="lbl_add_transaction">Add Transaction</string>
+    <string name="lbl_transaction_type">Type: </string>
+    <string name="lbl_transaction_name">Name: </string>
+    <string name="lbl_transaction_iggAmnt">igg Amnt: </string>
+    <string name="lbl_transaction_fgAmnt">fg Amnt: </string>
+    <string name="lbl_transaction_add">Add Transaction</string>
+    <string name="lbl_radio_sold">Sold</string>
+    <string name="lbl_radio_purchased">Purchased</string>
+
+    <string name="lbl_alert_confirm_title">Confirm Delete!</string>
 
     <string-array name="transaction_type_array">
         <item>Sold</item>

@@ -6,7 +6,6 @@ import android.util.Log;
 
 import com.bciancio.androidcapstoneprojectv2.entity.MySingleton;
 import com.bciancio.androidcapstoneprojectv2.entity.Transaction;
-import com.bciancio.androidcapstoneprojectv2.entity.XMLPullParserUsage;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -85,7 +84,7 @@ public class MyTaskHandler extends AsyncTask<String, Void, ArrayList<Transaction
                 );
 
 
-                // TODO set the id of the newly added transaction
+                // TODO set the id of the newly added transaction(current v of service returns a string)
                 result = getStringFromInputStream(in);
                 if(checkTransactionAdded(result)){
                     MySingleton mySingleton = MySingleton.get(mActivity);

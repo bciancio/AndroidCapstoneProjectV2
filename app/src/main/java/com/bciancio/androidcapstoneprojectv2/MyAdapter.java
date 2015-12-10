@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bciancio.androidcapstoneprojectv2.entity.Transaction;
@@ -35,6 +36,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         public TextView mTypeHolder;
         public TextView mFgHolder;
         public TextView mIggHolder;
+        public RelativeLayout mInfoLayout;
 
         public ViewHolder(View v) {
             super(v);
@@ -43,7 +45,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             mTypeHolder = (TextView) v.findViewById(R.id.theType);
             mFgHolder = (TextView) v.findViewById(R.id.theFgAmnt);
             mIggHolder = (TextView) v.findViewById(R.id.theIggAmnt);
-
+            mInfoLayout = (RelativeLayout)v.findViewById(R.id.rl_transaction_info);
         }
     }
 
@@ -65,8 +67,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 mDataset.remove(thePosition);
+                // TODO call webservice
                 notifyItemRemoved(thePosition);
-
                 dialog.dismiss();
             }
         });
@@ -78,6 +80,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         });
 
         alert.show();
+    }
+
+    public void promptUpdateDialog(int itemPosition) {
+        // TODO add popup
+        logcatThis("a wild popup has appeared.");
     }
 
     @Override
@@ -104,6 +111,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                 logcatThis("mDataSet size  before delete " + getItemCount());
                 remove(position);
                 logcatThis("mDataSet size after delete " + getItemCount());
+            }
+        });
+
+        holder.mInfoLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                promptUpdateDialog(position);
             }
         });
     }
